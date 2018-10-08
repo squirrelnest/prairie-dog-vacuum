@@ -1,14 +1,7 @@
-import React, { Component, Fragment } from "react";
-import ReactDOM from "react-dom";
-import * as PIXI from "pixi.js";
-import PrairieDogging from "./PrairieDogging";
-
-const height = window.innerHeight
-const width = window.innerWidth
-const numberOfGophers = Math.round((height*width) / 100000)
-const options = {
-  backgroundColor: 0xf46242
-}
+import React, { Component, Fragment } from "react"
+import ReactDOM from "react-dom"
+import * as PIXI from "pixi.js"
+import PrairieDog from "./PrairieDog"
 
 export default class PrairieDogs extends Component {
 
@@ -16,13 +9,12 @@ export default class PrairieDogs extends Component {
     super(props)
       this.state={
         mouseX: 0,
-        mouseY: 0,
-        numberOfGophers: numberOfGophers
+        mouseY: 0
     }
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    if (nextState.numberOfGophers === 0) {
+    if (this.props.numberOfGophers === 0) {
       return true
     } else {
       return false
@@ -35,19 +27,15 @@ export default class PrairieDogs extends Component {
 
   render() {
 
-    const PrairieDogs = Array(numberOfGophers).fill().map((element, index) =>
-      <PrairieDogging
-        x={Math.random() * Math.floor(width)}
-        y={Math.random() * Math.floor(height)}
+    const { screenWidth, screenHeight, numberOfGophers } = this.props
+
+    return Array(numberOfGophers).fill().map((element, index) =>
+      <PrairieDog
+        x={Math.random() * Math.floor(screenWidth)}
+        y={Math.random() * Math.floor(screenHeight)}
         key={index}
         scale={0.3}
         removeGopher={this.removeGopher} />
-    )
-
-    return (
-      <Fragment>
-        {PrairieDogs}
-      </Fragment>
     )
   }
 }

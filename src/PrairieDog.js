@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import Gopher from "./Gopher";
-import Hole from "./Hole";
+import React, { Component } from "react"
+import PropTypes from "prop-types"
+import Gopher from "./Gopher"
+import Hole from "./Hole"
 
-class PrairieDogging extends Component {
+export default class PrairieDog extends Component {
 
   constructor(props) {
     super(props)
@@ -29,8 +29,6 @@ class PrairieDogging extends Component {
     )
   }
 }
-PrairieDogging.contextTypes = {
+PrairieDog.contextTypes = {
   app: PropTypes.object
-};
-
-export default PrairieDogging
+}

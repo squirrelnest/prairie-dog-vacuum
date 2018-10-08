@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { CustomPIXIComponent, Sprite } from "react-pixi-fiber";
-import * as PIXI from "pixi.js";
+import React, { Component } from "react"
+import PropTypes from "prop-types"
+import { CustomPIXIComponent, Sprite } from "react-pixi-fiber"
+import * as PIXI from "pixi.js"
 
-const vacuum = "/yellow-vacuum.png";
-const centerAnchor = new PIXI.Point(0.5, 1);
+const vacuum = "/yellow-vacuum.png"
+const centerAnchor = new PIXI.Point(0.5, 1)
 
 class Vacuum extends Component {
 

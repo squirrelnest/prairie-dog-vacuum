@@ -1,16 +1,12 @@
-import React, { Component, Fragment } from "react";
-import ReactDOM from "react-dom";
-import { Stage, Text } from "react-pixi-fiber";
-import PrairieDogging from "./PrairieDogging";
-import PrairieDogs from "./PrairieDogs";
-import Hole from "./Hole";
-import Vacuum from "./Vacuum";
-import Tube from "./Tube";
-import * as PIXI from "pixi.js";
+import React, { Component, Fragment } from "react"
+import ReactDOM from "react-dom"
+import { Stage, Text } from "react-pixi-fiber"
+import PrairieDogs from "./PrairieDogs"
+import Tube from "./Tube"
+import * as PIXI from "pixi.js"
 
 const height = window.innerHeight
 const width = window.innerWidth
-const numberOfGophers = Math.round((height*width) / 100000)
 const options = {
   backgroundColor: 0xf46242
 }
@@ -22,7 +18,7 @@ class App extends Component {
       this.state={
         mouseX: 0,
         mouseY: 0,
-        numberOfGophers: numberOfGophers
+        numberOfGophers: Math.round((height*width) / 100000)
     }
   }
 
@@ -48,18 +44,22 @@ class App extends Component {
     return (
       <Fragment>
         <Stage
-          options={options}
-          width={width}
-          height={height}>
-          <PrairieDogs removeGopher={this.removeGopher} />
+        options={options}
+        width={width}
+        height={height}>
+          <PrairieDogs
+          removeGopher={this.removeGopher}
+          numberOfGophers={this.state.numberOfGophers}
+          screenWidth={width}
+          screenHeight={height}/>
           <Tube />
           { this.state.numberOfGophers == 0 &&
             <Text
-              text="Area cleared!"
-              style={{fontFamily: 'Arial', fontSize: '800%', fill: 0xffffff, align: 'center'}}
-              anchor={[0.5,0.5]}
-              x={width/2}
-              y={height/2}
+            text="Area cleared!"
+            style={{fontFamily: 'Arial', fontSize: '800%', fill: 0xffffff, align: 'center'}}
+            anchor={[0.5,0.5]}
+            x={width/2}
+            y={height/2}
             />
           }
         </Stage>
