@@ -1,0 +1,25 @@
+{
+  "name": "react-pixi-fiber-demo-rotating-bunny",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "main": "index.js",
+  "dependencies": {
+    "performance-now": "2.1.0",
+    "pixi.js": "4.8.2",
+    "react": "16.4.2",
+    "react-dom": "16.4.2",
+    "react-pixi-fiber": "0.4.9",
+    "react-scripts": "^2.0.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
