@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import { Sprite, Container, Graphics } from "react-pixi-fiber"
 import * as PIXI from "pixi.js"
 import Bulge from "./Bulge"
+import Hose from "./Hose"
 
 const centerAnchor = new PIXI.Point(0.5, 1)
 const tube = "/black-white-stripes.png"
@@ -69,16 +70,13 @@ class Tube extends Component {
   render() {
     return (
       <Container>
-        <Sprite
+        <Hose
           {...this.props}
-          name='vacuumHose'
           fill={0xffffff}
           x={this.state.mouseX}
           y={this.state.mouseY}
           width={50}
           height={this.state.mouseY}
-          anchor={centerAnchor}
-          texture={PIXI.Texture.fromImage(tube)}
         />
         <Sprite
           {...this.props}
