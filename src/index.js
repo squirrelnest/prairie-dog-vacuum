@@ -18,22 +18,23 @@ class App extends Component {
       this.state={
         mouseX: 0,
         mouseY: 0,
-        numberOfGophers: Math.round((height*width) / 100000)
+        numberOfGophers: Math.round((height*width) / 100000),
+        bulgeVisible: false
     }
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    if (nextState.numberOfGophers === 0) {
-      return true
-    } else {
-      return false
-    }
+  endBulge = () => {
+    this.setState(state => ({
+      ...state,
+      bulgeVisible: false
+    }))
   }
 
   removeGopher = () => {
     this.setState(state => ({
       ...state,
-      numberOfGophers: this.state.numberOfGophers - 1
+      numberOfGophers: this.state.numberOfGophers - 1,
+      bulgeVisible: this.state.numberOfGophers > 0 ? true : false
     }))
   }
 
@@ -52,7 +53,10 @@ class App extends Component {
           numberOfGophers={this.state.numberOfGophers}
           screenWidth={width}
           screenHeight={height}/>
-          <Tube />
+          <Tube
+            bulgeVisible={this.state.bulgeVisible}
+            endBulge={this.endBulge}
+            numberOfGophers={this.state.numberOfGophers}/>
           { this.state.numberOfGophers == 0 &&
             <Text
             text="Area cleared!"

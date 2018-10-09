@@ -7,9 +7,9 @@ export default class PrairieDogs extends Component {
 
   constructor(props) {
     super(props)
-      this.state={
-        mouseX: 0,
-        mouseY: 0
+    this.state={
+      mouseX: 0,
+      mouseY: 0
     }
   }
 
